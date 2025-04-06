@@ -6,20 +6,38 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		92D1593F2DA2B44A0032B80C /* dice_roll.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 92D1593E2DA2B44A0032B80C /* dice_roll.mp3 */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
-		92D158872DA1A34B0032B80C /* Dice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		92D158E42DA2953E0032B80C /* Dice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		92D1593E2DA2B44A0032B80C /* dice_roll.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dice_roll.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		92D158F62DA2953F0032B80C /* Exceptions for "Dice" folder in "Dice" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 92D158E32DA2953E0032B80C /* Dice */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		92D158892DA1A34B0032B80C /* Dice */ = {
+		92D158E62DA2953E0032B80C /* Dice */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				92D158F62DA2953F0032B80C /* Exceptions for "Dice" folder in "Dice" target */,
+			);
 			path = Dice;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		92D158842DA1A34B0032B80C /* Frameworks */ = {
+		92D158E12DA2953E0032B80C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -29,93 +47,103 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		92D1587E2DA1A34B0032B80C = {
+		92D158DB2DA2953E0032B80C = {
 			isa = PBXGroup;
 			children = (
-				92D158892DA1A34B0032B80C /* Dice */,
-				92D158882DA1A34B0032B80C /* Products */,
+				92D1593D2DA2B4160032B80C /* Sounds */,
+				92D158E62DA2953E0032B80C /* Dice */,
+				92D158E52DA2953E0032B80C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		92D158882DA1A34B0032B80C /* Products */ = {
+		92D158E52DA2953E0032B80C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				92D158872DA1A34B0032B80C /* Dice.app */,
+				92D158E42DA2953E0032B80C /* Dice.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		92D1593D2DA2B4160032B80C /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				92D1593E2DA2B44A0032B80C /* dice_roll.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		92D158862DA1A34B0032B80C /* Dice */ = {
+		92D158E32DA2953E0032B80C /* Dice */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 92D158962DA1A34C0032B80C /* Build configuration list for PBXNativeTarget "Dice" */;
+			buildConfigurationList = 92D158F72DA2953F0032B80C /* Build configuration list for PBXNativeTarget "Dice" */;
 			buildPhases = (
-				92D158832DA1A34B0032B80C /* Sources */,
-				92D158842DA1A34B0032B80C /* Frameworks */,
-				92D158852DA1A34B0032B80C /* Resources */,
+				92D158E02DA2953E0032B80C /* Sources */,
+				92D158E12DA2953E0032B80C /* Frameworks */,
+				92D158E22DA2953E0032B80C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				92D158892DA1A34B0032B80C /* Dice */,
+				92D158E62DA2953E0032B80C /* Dice */,
 			);
 			name = Dice;
 			packageProductDependencies = (
 			);
 			productName = Dice;
-			productReference = 92D158872DA1A34B0032B80C /* Dice.app */;
+			productReference = 92D158E42DA2953E0032B80C /* Dice.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		92D1587F2DA1A34B0032B80C /* Project object */ = {
+		92D158DC2DA2953E0032B80C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
-					92D158862DA1A34B0032B80C = {
+					92D158E32DA2953E0032B80C = {
 						CreatedOnToolsVersion = 16.2;
 					};
 				};
 			};
-			buildConfigurationList = 92D158822DA1A34B0032B80C /* Build configuration list for PBXProject "Dice" */;
+			buildConfigurationList = 92D158DF2DA2953E0032B80C /* Build configuration list for PBXProject "Dice" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 92D1587E2DA1A34B0032B80C;
+			mainGroup = 92D158DB2DA2953E0032B80C;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 92D158882DA1A34B0032B80C /* Products */;
+			productRefGroup = 92D158E52DA2953E0032B80C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				92D158862DA1A34B0032B80C /* Dice */,
+				92D158E32DA2953E0032B80C /* Dice */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		92D158852DA1A34B0032B80C /* Resources */ = {
+		92D158E22DA2953E0032B80C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92D1593F2DA2B44A0032B80C /* dice_roll.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		92D158832DA1A34B0032B80C /* Sources */ = {
+		92D158E02DA2953E0032B80C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -125,7 +153,63 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		92D158942DA1A34C0032B80C /* Debug */ = {
+		92D158F82DA2953F0032B80C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B4DUWPP2T3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Dice/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ana-chr.Dice";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		92D158F92DA2953F0032B80C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B4DUWPP2T3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Dice/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ana-chr.Dice";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		92D158FA2DA2953F0032B80C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -177,16 +261,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		92D158952DA1A34C0032B80C /* Release */ = {
+		92D158FB2DA2953F0032B80C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -232,113 +318,38 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-			};
-			name = Release;
-		};
-		92D158972DA1A34C0032B80C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Dice/Dice.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Dice/Preview Content\"";
-				DEVELOPMENT_TEAM = B4DUWPP2T3;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "ana-chr.Dice";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				XROS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Debug;
-		};
-		92D158982DA1A34C0032B80C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Dice/Dice.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Dice/Preview Content\"";
-				DEVELOPMENT_TEAM = B4DUWPP2T3;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "ana-chr.Dice";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				XROS_DEPLOYMENT_TARGET = 2.2;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		92D158822DA1A34B0032B80C /* Build configuration list for PBXProject "Dice" */ = {
+		92D158DF2DA2953E0032B80C /* Build configuration list for PBXProject "Dice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				92D158942DA1A34C0032B80C /* Debug */,
-				92D158952DA1A34C0032B80C /* Release */,
+				92D158FA2DA2953F0032B80C /* Debug */,
+				92D158FB2DA2953F0032B80C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		92D158962DA1A34C0032B80C /* Build configuration list for PBXNativeTarget "Dice" */ = {
+		92D158F72DA2953F0032B80C /* Build configuration list for PBXNativeTarget "Dice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				92D158972DA1A34C0032B80C /* Debug */,
-				92D158982DA1A34C0032B80C /* Release */,
+				92D158F82DA2953F0032B80C /* Debug */,
+				92D158F92DA2953F0032B80C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 92D1587F2DA1A34B0032B80C /* Project object */;
+	rootObject = 92D158DC2DA2953E0032B80C /* Project object */;
 }
