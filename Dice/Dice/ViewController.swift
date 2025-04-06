@@ -15,6 +15,13 @@ class ViewController: UIViewController {
     private var audioPlayer: AVAudioPlayer?
     private var isRolling = false
     
+    // Menu properties
+    private let menuButton = UIButton(type: .system)
+    private let sideMenuView = UIView()
+    private let menuItemsStackView = UIStackView()
+    private var isMenuOpen = false
+    private var sideMenuLeadingConstraint: NSLayoutConstraint!
+    
     override func loadView() {
         super.loadView()
         print("🔍 loadView called")
@@ -39,6 +46,10 @@ class ViewController: UIViewController {
         
         // Setup audio
         setupAudio()
+        
+        // Setup menu button and side menu (after other views)
+        setupMenuButton()
+        setupSideMenu()
         
         // Force layout update
         view.layoutIfNeeded()
@@ -69,6 +80,20 @@ class ViewController: UIViewController {
         print("🔍 Left dice frame: \(leftDiceImageView.frame)")
         print("🔍 Right dice frame: \(rightDiceImageView.frame)")
         print("🔍 Button frame: \(rollButton.frame)")
+        
+        // Update curved corner mask
+        let cornerRadius: CGFloat = 20
+        let path = UIBezierPath()
+        path.move(to: CGPoint(x: cornerRadius, y: 0))
+        path.addLine(to: CGPoint(x: sideMenuView.bounds.width, y: 0))
+        path.addLine(to: CGPoint(x: sideMenuView.bounds.width, y: sideMenuView.bounds.height))
+        path.addLine(to: CGPoint(x: 0, y: sideMenuView.bounds.height))
+        path.addQuadCurve(to: CGPoint(x: cornerRadius, y: 0),
+                         controlPoint: CGPoint(x: 0, y: 0))
+        
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = path.cgPath
+        sideMenuView.layer.mask = maskLayer
     }
     
     private func setupDiceViews() {
@@ -238,6 +263,148 @@ class ViewController: UIViewController {
         // Remove animations
         leftDiceImageView.layer.removeAllAnimations()
         rightDiceImageView.layer.removeAllAnimations()
+    }
+    
+    private func setupMenuButton() {
+        menuButton.translatesAutoresizingMaskIntoConstraints = false
+        menuButton.setImage(UIImage(systemName: "line.3.horizontal"), for: .normal)
+        menuButton.tintColor = .black
+        menuButton.addTarget(self, action: #selector(toggleMenu), for: .touchUpInside)
+        view.addSubview(menuButton)
+        
+        // Ensure menu button is always on top
+        view.bringSubviewToFront(menuButton)
+        
+        NSLayoutConstraint.activate([
+            menuButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            menuButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            menuButton.widthAnchor.constraint(equalToConstant: 44),
+            menuButton.heightAnchor.constraint(equalToConstant: 44)
+        ])
+    }
+    
+    private func setupSideMenu() {
+        // Side menu container
+        sideMenuView.backgroundColor = .black
+        sideMenuView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(sideMenuView)
+        
+        // Ensure side menu is always on top
+        view.bringSubviewToFront(sideMenuView)
+        view.bringSubviewToFront(menuButton)
+        
+        // Add logo
+        let logoImageView = UIImageView()
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Try to load the logo image with error handling
+        if let logoImage = UIImage(named: "dice_white_logo") {
+            print("✅ Logo image loaded successfully")
+            logoImageView.image = logoImage
+        } else {
+            print("❌ Failed to load logo image")
+            // Add a placeholder or debug view
+            logoImageView.backgroundColor = .gray
+            let label = UILabel()
+            label.text = "Logo"
+            label.textColor = .white
+            label.translatesAutoresizingMaskIntoConstraints = false
+            logoImageView.addSubview(label)
+            NSLayoutConstraint.activate([
+                label.centerXAnchor.constraint(equalTo: logoImageView.centerXAnchor),
+                label.centerYAnchor.constraint(equalTo: logoImageView.centerYAnchor)
+            ])
+        }
+        
+        logoImageView.contentMode = .scaleAspectFit
+        sideMenuView.addSubview(logoImageView)
+        
+        // Add menu items
+        let gameModeButton = createMenuItem(title: "Game Mode")
+        let accountButton = createMenuItem(title: "Account")
+        
+        // Add buttons directly to side menu
+        sideMenuView.addSubview(gameModeButton)
+        sideMenuView.addSubview(accountButton)
+        
+        // Constraints
+        sideMenuLeadingConstraint = sideMenuView.leadingAnchor.constraint(equalTo: view.trailingAnchor)
+        
+        NSLayoutConstraint.activate([
+            sideMenuView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            sideMenuView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            sideMenuView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
+            sideMenuLeadingConstraint,
+            
+            // Logo constraints - moved to left
+            logoImageView.topAnchor.constraint(equalTo: sideMenuView.topAnchor, constant: 20),
+            logoImageView.leadingAnchor.constraint(equalTo: sideMenuView.leadingAnchor, constant: 20),
+            logoImageView.widthAnchor.constraint(equalToConstant: 100),
+            logoImageView.heightAnchor.constraint(equalToConstant: 100),
+            
+            // Account button constraints (bottom button)
+            accountButton.bottomAnchor.constraint(equalTo: sideMenuView.bottomAnchor, constant: -60),
+            accountButton.leadingAnchor.constraint(equalTo: sideMenuView.leadingAnchor, constant: 20),
+            accountButton.trailingAnchor.constraint(equalTo: sideMenuView.trailingAnchor, constant: -20),
+            accountButton.heightAnchor.constraint(equalToConstant: 44),
+            
+            // Game Mode button constraints (above Account)
+            gameModeButton.bottomAnchor.constraint(equalTo: accountButton.topAnchor, constant: -20),
+            gameModeButton.leadingAnchor.constraint(equalTo: sideMenuView.leadingAnchor, constant: 20),
+            gameModeButton.trailingAnchor.constraint(equalTo: sideMenuView.trailingAnchor, constant: -20),
+            gameModeButton.heightAnchor.constraint(equalToConstant: 44)
+        ])
+        
+        // Add tap gesture to close menu
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOutsideMenu))
+        tapGesture.delegate = self
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    private func createMenuItem(title: String) -> UIButton {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .medium)
+        button.contentHorizontalAlignment = .left
+        button.addTarget(self, action: #selector(menuItemTapped(_:)), for: .touchUpInside)
+        return button
+    }
+    
+    @objc private func handleTapOutsideMenu(_ gesture: UITapGestureRecognizer) {
+        let location = gesture.location(in: view)
+        if !sideMenuView.frame.contains(location) && isMenuOpen {
+            toggleMenu()
+        }
+    }
+    
+    @objc private func toggleMenu() {
+        isMenuOpen.toggle()
+        print("Menu toggled: \(isMenuOpen ? "open" : "closed")")
+        
+        // Disable other interactions while menu is open
+        rollButton.isUserInteractionEnabled = !isMenuOpen
+        leftDiceImageView.isUserInteractionEnabled = !isMenuOpen
+        rightDiceImageView.isUserInteractionEnabled = !isMenuOpen
+        
+        UIView.animate(withDuration: 0.3) {
+            self.sideMenuLeadingConstraint.constant = self.isMenuOpen ? -self.view.frame.width * 0.7 : 0
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc private func menuItemTapped(_ sender: UIButton) {
+        print("Menu item tapped: \(sender.currentTitle ?? "")")
+        // Handle menu item taps here
+    }
+}
+
+// MARK: - UIGestureRecognizerDelegate
+extension ViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        let location = touch.location(in: view)
+        return !sideMenuView.frame.contains(location) && isMenuOpen
     }
 }
 
