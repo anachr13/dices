@@ -27,7 +27,7 @@ class SideMenuView: UIView {
     private let accountButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Account", for: .normal)
+        button.setTitle("Feedback", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .medium)
         button.contentHorizontalAlignment = .left
@@ -98,7 +98,9 @@ class SideMenuView: UIView {
     }
     
     @objc private func accountButtonTapped() {
-        onAccountTapped?()
+        if let url = URL(string: "https://forms.gle/j6USkj9eb8Q4Xj5H6") {
+            UIApplication.shared.open(url)
+        }
     }
     
     // MARK: - Layout
