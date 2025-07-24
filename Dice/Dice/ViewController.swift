@@ -8,6 +8,7 @@
 import UIKit
 import AVFoundation
 
+/// Main view controller for the Dice app. Handles UI, dice layout, orientation, and user interactions.
 class ViewController: UIViewController {
     private var audioPlayer: AVAudioPlayer?
     private var isRolling = false
@@ -89,6 +90,7 @@ class ViewController: UIViewController {
         currentOrientationIsPortrait = view.bounds.height >= view.bounds.width
     }
 
+    /// Handles device orientation changes and updates dice layout and constraints.
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         let isPortrait = view.bounds.height >= view.bounds.width
@@ -105,6 +107,7 @@ class ViewController: UIViewController {
         UIApplication.shared.isIdleTimerDisabled = false
     }
     
+    /// Sets up the main UI, including dice container and roll button, and applies orientation constraints.
     private func setupUI() {
         view.backgroundColor = .white
 
@@ -143,6 +146,7 @@ class ViewController: UIViewController {
         updateOrientationConstraints()
     }
 
+    /// Updates constraints for portrait/landscape and for different dice counts.
     private func updateOrientationConstraints() {
         NSLayoutConstraint.deactivate(portraitConstraints + landscapeConstraints)
         portraitCenterYConstraint?.isActive = false
@@ -233,6 +237,7 @@ class ViewController: UIViewController {
         present(preferencesVC, animated: true)
     }
     
+    /// Sets up the dice grid based on dice count and orientation. Handles all layout logic.
     private func setupDice() {
         diceViews.forEach { $0.removeFromSuperview() }
         diceViews.removeAll()
@@ -508,6 +513,7 @@ class ViewController: UIViewController {
         menuManager.toggleMenu()
     }
     
+    /// Handles the roll button tap: animates dice and plays sound if enabled.
     @objc private func rollButtonTapped() {
         guard !isRolling else { return }
         isRolling = true

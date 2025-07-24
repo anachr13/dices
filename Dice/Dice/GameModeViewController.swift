@@ -1,5 +1,13 @@
+//
+//  GameModeViewController.swift
+//  Dice
+//
+//  Created by Christos Anastasiades on 6/4/25.
+//
+
 import UIKit
 
+/// Preferences screen for the Dice app. Allows user to set dice count, sound, and always-on-screen.
 class PreferencesViewController: UIViewController {
     
     private let scrollView: UIScrollView = {
@@ -100,6 +108,7 @@ class PreferencesViewController: UIViewController {
         setupUI()
     }
     
+    /// Sets up the preferences UI and adds all settings sections.
     private func setupUI() {
         view.backgroundColor = .white
         title = "Preferences"
@@ -196,6 +205,7 @@ class PreferencesViewController: UIViewController {
         )
     }
     
+    /// Creates the dice count section with title, controls, and subtitle.
     private func createDiceCountSection() -> UIView {
         let container = UIView()
         container.translatesAutoresizingMaskIntoConstraints = false
@@ -257,6 +267,7 @@ class PreferencesViewController: UIViewController {
         return container
     }
     
+    /// Creates the rolling sound section with toggle.
     private func createMuteSoundSection() -> UIView {
         let container = UIView()
         container.translatesAutoresizingMaskIntoConstraints = false
@@ -326,6 +337,7 @@ class PreferencesViewController: UIViewController {
         return container
     }
     
+    /// Creates the always-on-screen section with toggle.
     private func createAlwaysOnScreenSection() -> UIView {
         let container = UIView()
         container.translatesAutoresizingMaskIntoConstraints = false
@@ -361,6 +373,7 @@ class PreferencesViewController: UIViewController {
         return container
     }
     
+    /// Updates the dice count UI and button states.
     private func updateDiceCountUI() {
         diceCountValueLabel.text = "\(currentDiceCount)"
         minusButton.isEnabled = currentDiceCount > 1
@@ -369,28 +382,34 @@ class PreferencesViewController: UIViewController {
         plusButton.alpha = plusButton.isEnabled ? 1.0 : 0.5
     }
     
+    /// Handles decrease dice count button tap.
     @objc private func decreaseDiceCount() {
         guard currentDiceCount > 1 else { return }
         currentDiceCount -= 1
     }
     
+    /// Handles increase dice count button tap.
     @objc private func increaseDiceCount() {
         guard currentDiceCount < 6 else { return }
         currentDiceCount += 1
     }
     
+    /// Handles rolling sound toggle change.
     @objc private func muteSoundSwitchChanged() {
         UserDefaultsManager.shared.muteSound = !muteSoundSwitch.isOn
     }
     
+    /// Handles always-on-screen toggle change.
     @objc private func alwaysOnScreenSwitchChanged() {
         UserDefaultsManager.shared.alwaysOnScreen = alwaysOnScreenSwitch.isOn
     }
     
+    /// Handles menu button tap to open/close menu.
     @objc private func menuButtonTapped() {
         menuManager.toggleMenu()
     }
     
+    /// Handles save button tap to persist preferences and dismiss.
     @objc private func saveButtonTapped() {
         UserDefaultsManager.shared.diceCount = currentDiceCount
         dismiss(animated: true)

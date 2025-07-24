@@ -1,6 +1,14 @@
+//
+//  DiceView.swift
+//  Dice
+//
+//  Created by Christos Anastasiades on 6/4/25.
+//
+
 import UIKit
 import QuartzCore
 
+/// Custom UIView for rendering a single dice face and handling its animation.
 class DiceView: UIView {
     private let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -24,6 +32,7 @@ class DiceView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /// Sets up the dice image view and appearance.
     private func setupUI() {
         backgroundColor = .clear
         layer.cornerRadius = 0
@@ -42,11 +51,13 @@ class DiceView: UIView {
         updateDiceImage()
     }
     
+    /// Updates the dice image based on the current value.
     private func updateDiceImage() {
         imageView.image = UIImage(systemName: "die.face.\(currentValue)")
         imageView.tintColor = .black
     }
     
+    /// Animates the dice roll with rotation, scaling, and rapid face changes.
     func roll() {
         // Remove any existing animations
         layer.removeAllAnimations()
